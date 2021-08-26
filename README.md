@@ -21,6 +21,7 @@ The app has a backend (https://github.com/flavio0567/massas-cecilia) built in No
 - AWS-S3
 - Multer
 - Nodemailer
+- Docker
 - Redis
 - Sequelize (first edition of this app when was used MS-SQL)
 - Postgres
@@ -40,5 +41,6 @@ The app has a backend (https://github.com/flavio0567/massas-cecilia) built in No
 ## Steps to run this project:
 
 1. Run `yarn install` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `yarn ios` or `yarn android` command
+2. Run `yarn build` command
+3. Setup database settings inside `ormconfig.json` file
+4. Run `yarn ios` or `yarn android` command
