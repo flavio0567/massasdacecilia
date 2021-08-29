@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { format } from 'date-fns';
 
 import NestedListView, { NestedRow } from 'react-native-nested-listview';
@@ -15,13 +17,14 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../../../shared/hooks/auth';
+import * as CartActions from '../../../../store/modules/cart/actions';
 
 import api from '../../../../shared/service/api';
 
 import {
   Container,
   Header,
-  SelectionButton,
+  LogoutButton,
   ChevronIcon,
   StatusBarText,
   LineSeparator,
@@ -83,9 +86,9 @@ interface OrderItemProps {
   index: number;
 }
 
-const More: React.FC = () => {
-  const { user } = useAuth();
-  const { goBack, reset } = useNavigation();
+const More: React.FC = ({ removeAllCart }: any) => {
+  const { user, signOut } = useAuth();
+  const { reset } = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
   const [token, setToken] = useState<string | null>();
@@ -122,6 +125,25 @@ const More: React.FC = () => {
     [orders],
   );
 
+  const handleSignOut = useCallback(() => {
+      Alert.alert(
+        'Sair do App',
+        'Você está saindo do app de forma segura, confirma?',
+        [
+          {
+            text: 'Sim', onPress: () => (
+              signOut(),
+              removeAllCart(),
+              reset({ index: 0, routes: [{ name: 'Porch' }] }))
+          },
+          {
+            text: 'Não',
+          },
+        ],
+        { cancelable: false },
+      );
+  }, []);
+
   return (
     <Container>
       <View
@@ -131,12 +153,15 @@ const More: React.FC = () => {
         }}
       >
         <Header>
-          <SelectionButton onPress={() => goBack()}>
-            <ChevronIcon name="chevron-left" size={22} />
-          </SelectionButton>
-
           <StatusBar backgroundColor="#FD9E63" barStyle="light-content" />
           <StatusBarText allowFontScaling={false}>Mais</StatusBarText>
+
+          <LogoutButton
+            onPress={handleSignOut}
+            accessibilityLabel="Sair do aplicativo"
+          >
+            <ChevronIcon name="log-out" size={22} />
+          </LogoutButton>
         </Header>
       </View>
       <LineSeparator>
@@ -192,19 +217,23 @@ const More: React.FC = () => {
           Meus Pedidos
         </ProductLabelText>
       </LineSeparator>
-      {!user && (
+      {!token && !orders && (
         <>
           <InfoText
             allowFontScaling={false}
             accessibilityLabel="Você ainda não fez nenhum pedido"
           >
-            Você ainda não fez nenhum pedido! 
+            Faça seu cadastro e acompanhe aqui suas compras!
           </InfoText>
+        </>
+      )}
+      {token && (typeof orders == 'undefined' || Object.keys(orders).length == 0) && (
+        <>
           <InfoText
             allowFontScaling={false}
             accessibilityLabel="Você ainda não fez nenhum pedido"
           >
-            Cadastre-se no app e acompanhe suas compras!
+            Faça seu primeiro pedido e acompanhe aqui suas compras!
           </InfoText>
         </>
       )}
@@ -379,4 +408,11 @@ const More: React.FC = () => {
   );
 };
 
-export default More;
+const mapStateToProps = (state: any): any => ({
+  cartSize: state.cart.length,
+});
+
+const mapDispatchToProps = (dispatch: any): any =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(More);

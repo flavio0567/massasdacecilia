@@ -193,6 +193,18 @@ const Cart: React.FC = ({
 
   const handleCreateOrder = useCallback(async () => {
     setLoading(true);
+    if (
+      !user ||
+      !deliveryDateTime.deliveryTime ||
+      Object.is(deliveryDateTime.deliveryTime, undefined) ||
+      Object.is(deliveryDateTime.deliveryDate, NaN)
+    ) {
+      Alert.alert(
+        'Erro ao finalizar o pedido!',
+        'Antes de finalizar seu pedido retorne ao Início e selecione os dados para a entrega.',
+      );
+      return;
+    }
     if (cart.length === 0) {
       Alert.alert(
         'Erro ao finalizar o pedido!',
@@ -287,7 +299,7 @@ const Cart: React.FC = ({
           backgroundColor: '#FD9E63',
           height: hp('10%'),
         }}
-      >
+      > 
         <Header>
           <StatusBarText allowFontScaling={false}>Pedido</StatusBarText>
 

@@ -12,7 +12,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useDispatch, connect } from 'react-redux';
 import { View, StatusBar, Alert, Platform } from 'react-native';
 import { ptBR } from 'date-fns/locale';
-import { format, formatISO, setHours } from 'date-fns';
+import { format } from 'date-fns';
 import api from '../../../../shared/service/api';
 
 import { useNavigation } from '@react-navigation/native';
@@ -26,7 +26,6 @@ import { useAuth } from '../../../../shared/hooks/auth';
 import { useDeliveryDateTime } from '../../../../shared/hooks/deliveryDateTime';
 
 import * as CartActions from '../../../../store/modules/cart/actions';
-import { Hours } from '../../../../util/hours';
 
 import {
   Container,
@@ -87,7 +86,6 @@ const DateTimeDelivery: React.FC = () => {
 
   useEffect(() => {
     const weekday = format(deliveryDate, 'E', { locale: ptBR });
-
     api.get(`timeframes/${weekday}/${deliveryDate}`)
       .then(response => {
         setTimeFrameRange(response.data.timeframe);
@@ -131,7 +129,7 @@ const DateTimeDelivery: React.FC = () => {
       return;
     }
 
-    if (!selectedHour) {
+    if (!selectedHour || selectedHour === '00:00') {
       Alert.alert(
         'Selecione data e horário para delivery/retirada:',
         'Para prosseguir escolha data/hora para delivery/retirada.',

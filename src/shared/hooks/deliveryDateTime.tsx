@@ -6,6 +6,7 @@ interface DeliveryDateTimeState {
 }
 
 interface DeliveryDateTimeContext {
+  Date: Date;
   deliveryDate: Date;
   deliveryTime: string;
 }

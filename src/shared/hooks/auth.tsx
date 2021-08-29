@@ -100,13 +100,15 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = useCallback(async () => {
     try {
-      await AsyncStorage.multiRemove(['@Massas:token', '@Massas:user']);
+      await AsyncStorage.multiRemove([
+        '@Massas:token',
+        '@Massas:user',
+        '@Massas:mobile',
+        '@Massas:password',
+      ]);
     } catch (err) {
       console.log(err);
     }
-
-    await AsyncStorage.removeItem('@Massas:token');
-
     setData({} as AuthState);
   }, []);
 

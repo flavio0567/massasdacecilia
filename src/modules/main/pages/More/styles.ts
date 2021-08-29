@@ -18,25 +18,25 @@ export const Container = styled.View`
 
 export const StatusBarText = styled.Text`
   font-size: 18px;
-  margin-right: 200px;
   font-family: 'RobotoSlab-Regular';
   color: #fff;
+  margin: 0 154px 10px;
+  width: 48px;
+`;
+
+export const LogoutButton = styled.TouchableOpacity`
+  padding: 5px;
+  margin-left: -50px;
 `;
 
 export const ChevronIcon = styled(Icon)`
-  margin-left: 10px;
   color: #fff;
 `;
 
 export const Header = styled.SafeAreaView`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-`;
-
-export const SelectionButton = styled.TouchableOpacity`
-  padding: 5px;
-  margin-top: 4px;
 `;
 
 export const LineSeparator = styled.View`
