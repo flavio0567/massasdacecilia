@@ -100,6 +100,7 @@ const Products: React.FC = ({ navigation, route, cartSize }: any) => {
             <Badge
               status="error"
               value={cartSize}
+              textStyle={{ fontSize: 10 }}
               containerStyle={{
                 position: 'absolute',
                 top: -4,
@@ -107,7 +108,7 @@ const Products: React.FC = ({ navigation, route, cartSize }: any) => {
                 opacity: 0.8,
               }}
             />
-            <CartIcon name="shopping-cart" size={22} />
+            <CartIcon name="shopping-cart" size={26} />
           </SelectionButton>
         </Header>
       </View>

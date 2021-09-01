@@ -37,6 +37,7 @@ import {
   ModalOrderItemDetail,
   ModalOrderDetail,
   ModalOrderDetailText,
+  OrderDetailText,
   OpenButton,
   CreateAccountButtonText,
   IconLogIn,
@@ -251,19 +252,19 @@ const More: React.FC = ({ removeAllCart }: any) => {
             </ProductText>
             <OrderDetail>
               <View>
-                <ProductText>
+                <OrderDetailText>
                   {' '}
                   {format(new Date(item.delivery_date), 'dd/MM/yyyy')}
                   {' - '}
                   {item.delivery_time}
-                </ProductText>
+                </OrderDetailText>
               </View>
 
               {item.is_delivered ? (
                 <ProductText
                   allowFontScaling={false}
                   accessibilityLabel="Atendido"
-                  style={{ color: '#6baa8a', width: 95 }}
+                  style={{ color: '#6baa8a', width: 95, marginLeft: 20 }}
                 >
                   Atendido
                 </ProductText>
@@ -374,7 +375,7 @@ const More: React.FC = ({ removeAllCart }: any) => {
                         accessibilityLabel="Fechar"
                         style={{
                           color: 'white',
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: 'bold',
                           textAlign: 'center',
                           marginBottom: 5,
@@ -387,15 +388,14 @@ const More: React.FC = ({ removeAllCart }: any) => {
                 </View>
               </Modal>
               <OpenButton
-                style={{ backgroundColor: '#FD9E63', fontSize: 2 }}
                 onPress={() => {
-                  mountOrderSelected(index);
+                 mountOrderSelected(index);
                 }}
               >
                 <ProductText
                   allowFontScaling={false}
                   accessibilityLabel="Detalhes"
-                  style={{ color: 'white', fontWeight: 'bold' }}
+                  style={{ color: 'white', fontWeight: 'bold', fontSize: 12 }}
                 >
                   Detalhes
                 </ProductText>

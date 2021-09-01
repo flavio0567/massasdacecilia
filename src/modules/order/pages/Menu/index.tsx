@@ -83,14 +83,15 @@ const Menu: React.FC = ({ navigation, route, cartSize }: any) => {
               <Badge
                 status="error"
                 value={cartSize.length}
+                textStyle={{ fontSize: 10 }}
                 containerStyle={{
                   position: 'absolute',
                   top: -8,
-                  right: 8,
+                  right: 12,
                   opacity: 0.8,
                 }}
               />
-              <CartIcon name="shopping-cart" size={22} />
+              <CartIcon name="shopping-cart" size={26} />
             </View>
           </SelectionButton>
         </Header>

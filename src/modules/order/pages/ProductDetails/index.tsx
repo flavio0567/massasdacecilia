@@ -200,14 +200,15 @@ const ProductDetails: React.FC = ({
             <Badge
               status="error"
               value={cartSize}
+              textStyle={{ fontSize: 10 }}
               containerStyle={{
                 position: 'absolute',
                 top: -4,
-                right: 12,
+                right: 16,
                 opacity: 0.8,
               }}
             />
-            <CartIcon name="shopping-cart" size={22} />
+            <CartIcon name="shopping-cart" size={26} />
           </SelectionButton>
         </Header>
       </View>
@@ -288,9 +289,9 @@ const ProductDetails: React.FC = ({
               >
                 <Checkbox accessibilityLabel="selected produc detail">
                   {isCheckedOven ? (
-                    <Icon name="check" size={20} color="#FF9000" />
+                    <Icon name="check" size={15} color="#FF9000" />
                   ) : (
-                    <Icon name="check" size={20} color="#F0F0F0F0" />
+                    <Icon name="check" size={15} color="#fff5e6" />
                   )}
                 </Checkbox>
               </CheckBoxAgreement>
@@ -310,9 +311,9 @@ const ProductDetails: React.FC = ({
               >
                 <Checkbox accessibilityLabel="selected product">
                   {isCheckedMicrowave ? (
-                    <Icon name="check" size={20} color="#FF9000" />
+                    <Icon name="check" size={15} color="#FF9000" />
                   ) : (
-                    <Icon name="check" size={20} color="#F0F0F0F0" />
+                    <Icon name="check" size={15} color="#fff5e6" />
                   )}
                 </Checkbox>
               </CheckBoxAgreement>

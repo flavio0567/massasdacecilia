@@ -109,107 +109,113 @@ const AppRoutes: React.FC = () => {
       <Tab.Navigator
         initialRouteName="Porch"
       >
-        <Tab.Screen
-          name="DeliveryStack"
-          component={DeliveryStackScreen}
-          options={{
-            tabBarLabel: 'Início',
-            headerShown: false,
-            tabBarActiveTintColor: '#F2A900',
-            tabBarInactiveTintColor: '#fcd0ba',
-            tabBarStyle: {
-              backgroundColor: '#fff5e6',
-            },
-            tabBarLabelStyle: {
-              textAlign: 'center',
-              fontSize: 12,
-            },
-            tabBarIcon: ({ color }) => (
-              <Icon
-                name="home"
-                color={color}
-                size={20}
-                style={{ padding: 6 }}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="MainStack"
-          component={MainStackScreen}
-          options={{
-            tabBarLabel: 'Cardápio',
-            headerShown: false,
-            tabBarActiveTintColor: '#F2A900',
-            tabBarInactiveTintColor: '#fcd0ba',
-            tabBarStyle: {
-              backgroundColor: '#fff5e6',
-            },
-            tabBarLabelStyle: {
-              textAlign: 'center',
-              fontSize: 12,
-            },
-            tabBarIcon: ({ color }) => (
-              <Icon
-                name="book-open"
-                color={color}
-                size={20}
-                style={{ padding: 6 }}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Cart"
-          component={Cart}
-          options={{
-            tabBarLabel: 'Pedido',
-            headerShown: false,
-            tabBarActiveTintColor: '#F2A900',
-            tabBarInactiveTintColor: '#fcd0ba',
-            tabBarStyle: {
-              backgroundColor: '#fff5e6',
-            },
-            tabBarLabelStyle: {
-              textAlign: 'center',
-              fontSize: 12,
-            },
-            tabBarIcon: ({ color }) => (
-              <Icon
-                name="shopping-cart"
-                color={color}
-                size={20}
-                style={{ padding: 6 }}
-              />
-            ),
-            // tabBarBadge: 3,
-          }}
-        />
-        <Tab.Screen
-          name="More"
-          component={More}
-          options={{
-            tabBarLabel: 'Mais',
-            headerShown: false,
-            tabBarActiveTintColor: '#F2A900',
-            tabBarInactiveTintColor: '#fcd0ba',
-            tabBarStyle: {
-              backgroundColor: '#fff5e6',
-            },
-            tabBarLabelStyle: {
-              textAlign: 'center',
-              fontSize: 12,
-            },
-            tabBarIcon: ({ color }) => (
-              <Icon
-                name="more-horizontal"
-                color={color}
-                size={20}
-                style={{ padding: 6 }}
-              />
-            ),
-          }}
-        />
+        <Tab.Group>
+          <Tab.Screen
+            name="DeliveryStack"
+            component={DeliveryStackScreen}
+            options={{
+              tabBarLabel: 'Início',
+              headerShown: false,
+              tabBarActiveTintColor: '#F2A900',
+              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarStyle: {
+                backgroundColor: '#fff5e6',
+                height: 72,
+              },
+              tabBarLabelStyle: {
+                textAlign: 'center',
+                fontSize: 12,
+              },
+              tabBarIcon: ({ color }) => (
+                <Icon
+                  name="home"
+                  color={color}
+                  size={20}
+                  style={{ padding: 6 }}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="MainStack"
+            component={MainStackScreen}
+            options={{
+              tabBarLabel: 'Cardápio',
+              headerShown: false,
+              tabBarActiveTintColor: '#F2A900',
+              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarStyle: {
+                backgroundColor: '#fff5e6',
+                height: 72,
+              },
+              tabBarLabelStyle: {
+                textAlign: 'center',
+                fontSize: 12,
+              },
+              tabBarIcon: ({ color }) => (
+                <Icon
+                  name="book-open"
+                  color={color}
+                  size={20}
+                  style={{ padding: 6 }}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Cart"
+            component={Cart}
+            options={{
+              tabBarLabel: 'Pedido',
+              headerShown: false,
+              tabBarActiveTintColor: '#F2A900',
+              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarStyle: {
+                backgroundColor: '#fff5e6',
+                height: 72,
+              },
+              tabBarLabelStyle: {
+                textAlign: 'center',
+                fontSize: 12,
+              },
+              tabBarIcon: ({ color }) => (
+                <Icon
+                  name="shopping-cart"
+                  color={color}
+                  size={20}
+                  style={{ padding: 6 }}
+                />
+              ),
+              // tabBarBadge: 3,
+            }}
+          />
+          <Tab.Screen
+            name="More"
+            component={More}
+            options={{
+              tabBarLabel: 'Mais',
+              headerShown: false,
+              tabBarActiveTintColor: '#F2A900',
+              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarStyle: {
+                backgroundColor: '#fff5e6',
+                height: 72,
+              },
+              tabBarLabelStyle: {
+                textAlign: 'center',
+                fontSize: 12,
+              },
+              tabBarIcon: ({ color }) => (
+                <Icon
+                  name="more-horizontal"
+                  color={color}
+                  size={20}
+                  style={{ padding: 6 }}
+                />
+              ),
+            }}
+            />
+        </Tab.Group>
       </Tab.Navigator>
     );
   }

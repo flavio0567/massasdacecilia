@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
 
 import ImgLogo from '../../../assets/logo_massas.png';
+import ImgDefault from '../../../assets/default-img.png';
 
 import api from '../../../../shared/service/api';
 
@@ -37,14 +38,25 @@ const Order: React.FC = ({ cartSize }: any) => {
 
   const [familyProducts, setFamilyProducts] = useState<Product[]>([]);
 
-  const productFamily = useCallback(async () => {
+  const productFamily = useCallback(() => {
+    let isCancelled = false;
     setLoading(true);
-    await api.get('products/family').then((response) => {
-      const { product } = response.data;
 
-      setFamilyProducts(product);
-    });
+    const handleCallProducts = async () => {
+      await api.get('products/family').then((response) => {
+        if (!isCancelled) {
+          const { product } = response.data;
+          setFamilyProducts(product);
+        };
+      })
+    }
+
+    handleCallProducts();
     setLoading(false);
+
+    return () => {
+      isCancelled = true;
+    }
   }, []);
 
   useEffect(() => {
@@ -72,6 +84,7 @@ const Order: React.FC = ({ cartSize }: any) => {
             <Badge
               status="error"
               value={cartSize}
+              textStyle={{ fontSize: 10 }}
               containerStyle={{
                 position: 'absolute',
                 top: -2,
@@ -79,7 +92,7 @@ const Order: React.FC = ({ cartSize }: any) => {
                 opacity: 0.8,
               }}
             />
-            <CartIcon name="shopping-cart" size={22} />
+            <CartIcon name="shopping-cart" size={26} />
           </SelectionButton>
         </Header>
       </View>
@@ -116,9 +129,13 @@ const Order: React.FC = ({ cartSize }: any) => {
                 navigateToMenu(familyProduct.product_family, familyProduct.name)
               }
             >
+              <ProductImage
+                style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+                source={ImgDefault}
+              />
               {familyProduct.avatar_url ? (
                 <ProductImage
-                  style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+                  style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6, marginTop: -110 }}
                   source={{ uri: `${familyProduct.avatar_url}` }}
                 />
               ) : (

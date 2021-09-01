@@ -487,9 +487,9 @@ const Cart: React.FC = ({
           >
             <Checkbox accessibilityLabel="Selected payment method">
               {isCash ? (
-                <Icon name="check" size={20} color="#FF9000" />
+                <Icon name="check" size={15} color="#FF9000" />
               ) : (
-                <Icon name="check" size={20} color="#fff5e6" />
+                <Icon name="check" size={15} color="#fff5e6" />
               )}
             </Checkbox>
           </CheckBoxAgreement>
@@ -508,9 +508,9 @@ const Cart: React.FC = ({
           >
             <Checkbox accessibilityLabel="Check selected button">
               {isCreditCard ? (
-                <Icon name="check" size={20} color="#FF9000" />
+                <Icon name="check" size={15} color="#FF9000" />
               ) : (
-                <Icon name="check" size={20} color="#fff5e6" />
+                <Icon name="check" size={15} color="#fff5e6" />
               )}
             </Checkbox>
           </CheckBoxAgreement>

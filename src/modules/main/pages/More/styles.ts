@@ -77,10 +77,10 @@ export const ListOrders = styled(FlatList as new () => FlatList<typeof Order>)`
 export const OrderItem = styled.View`
   background: #fff;
   border-radius: 8px;
-  margin: 2px 28px 4px;
+  margin: 2px 24px 4px;
   padding: 4px;
-  width: ${wp('84%')}px;
-  height: ${hp('6%')}px;
+  width: ${wp('88%')}px;
+  height: ${hp('10%')}px;
 `;
 
 export const OrderDetail = styled.View`
@@ -90,9 +90,9 @@ export const OrderDetail = styled.View`
 `;
 
 export const OrderDetailText = styled.Text`
-  width: 176px;
-  font-size: 16px;
-  padding: 8px 10px 0;
+  /* width: 176px; */
+  font-size: 10px;
+  padding: 2px 10px 0;
   font-family: 'RobotoSlab-Regular';
   color: #3f3f3f;
 `;
@@ -101,7 +101,8 @@ export const OpenButton = styled.TouchableHighlight`
   border-radius: 20px;
   width: 70px;
   padding-bottom: 2px;
-  margin: 4px;
+  margin: 2px 14px;
+  background-color: #FD9E63;
 `;
 
 export const ModalOrderDetail = styled.View`
@@ -115,13 +116,13 @@ export const ModalOrderItemDetail = styled.View`
   border-radius: 8px;
   margin: 4px;
   padding: 6px;
-  width: ${wp('84%')}px;
+  width: ${wp('86%')}px;
   height: 60px;
 `;
 
 export const ModalOrderDetailText = styled.Text`
   width: 300px;
-  font-size: 12px;
+  font-size: 15.5px;
   font-family: 'RobotoSlab-Regular';
   color: #3f3f3f;
 `;

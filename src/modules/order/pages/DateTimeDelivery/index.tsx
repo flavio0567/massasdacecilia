@@ -74,6 +74,7 @@ const DateTimeDelivery: React.FC = () => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [deliveryDate, setDeliveryDate] = useState(new Date());
 
+  const [status, setStatus] = useState(false);
   const [timeFrameRange, setTimeFrameRange] = useState<TimeFrameProps>([]);
   const [selectedHour, setSelectedHour] = useState('00:00');
 
@@ -85,11 +86,22 @@ const DateTimeDelivery: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const weekday = format(deliveryDate, 'E', { locale: ptBR });
-    api.get(`timeframes/${weekday}/${deliveryDate}`)
-      .then(response => {
-        setTimeFrameRange(response.data.timeframe);
-    });
+    let isCancelled = false;
+    const handleCallApi = async () => {
+      const weekday = format(deliveryDate, 'E', { locale: ptBR });
+  
+      await api.get(`timeframes/${weekday}/${deliveryDate}`)
+        .then(response => {
+          if (!isCancelled) {
+            setTimeFrameRange(response.data.timeframe);
+          };
+      });
+    }
+    handleCallApi();
+
+    return () => {
+      isCancelled = true;
+    }
   }, [deliveryDate]);
 
   const deliveryAvailability = useMemo(() => {

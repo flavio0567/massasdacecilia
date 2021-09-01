@@ -26,8 +26,9 @@ export const StartusBarText = styled.Text`
 `;
 
 export const CartIcon = styled(Icon)`
-  margin-right: 20px;
+  margin-right: 26px;
   color: #fff;
+  z-index: -1;
 `;
 
 export const QuantityView = styled.View`
@@ -104,11 +105,12 @@ export const Agreement = styled.View`
 export const CheckBoxAgreement = styled.TouchableOpacity``;
 
 export const Checkbox = styled.Text`
-  height: 22px;
-  width: 22px;
-  border-radius: 4px;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
   border-width: 1px;
   border-color: #666360;
+  padding: 2px;
 `;
 
 export const TextAgreement = styled.Text`

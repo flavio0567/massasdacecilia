@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import { View } from 'react-native';
 import logoImg from '../../assets/logo_massas.png';
+import ImgDefault from '../../assets/product-light-img.png';
 
 import {
   Container,
@@ -42,8 +43,14 @@ const ProductRender: React.FC = ({ data }: any) => {
           navigateToProducts(data.product_family, data.category, data.code);
         }}
       >
+        <ProductImg
+          // style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+          source={ImgDefault}
+        />
         {data.avatar_url ? (
-          <ProductImg source={{ uri: data.avatar_url }} />
+          <ProductImg
+            style={{ marginLeft: -119 }}
+            source={{ uri: data.avatar_url }} />
         ) : (
           <ProductImg source={logoImg} />
         )}

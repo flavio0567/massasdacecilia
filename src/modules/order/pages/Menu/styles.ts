@@ -42,7 +42,7 @@ export const SelectionButton = styled.TouchableOpacity`
 `;
 
 export const CartIcon = styled(Icon)`
-  margin-right: 20px;
+  margin-right: 26px;
   color: #fff;
   z-index: -1;
 `;
