@@ -89,8 +89,13 @@ const DateTimeDelivery: React.FC = () => {
     let isCancelled = false;
     const handleCallApi = async () => {
       const weekday = format(deliveryDate, 'E', { locale: ptBR });
-  
-      await api.get(`timeframes/${weekday}/${deliveryDate}`)
+      const offset = new Date().getTimezoneOffset();
+
+      await api.get(`timeframes/${weekday}/${deliveryDate}`, {
+        params: {
+          offset
+        }
+      })
         .then(response => {
           if (!isCancelled) {
             setTimeFrameRange(response.data.timeframe);

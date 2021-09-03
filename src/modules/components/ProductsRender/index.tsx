@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { View } from 'react-native';
-import logoImg from '../../assets/logo_massas.png';
+import logoImg from '../../assets/logo-product.png';
 import ImgDefault from '../../assets/product-light-img.png';
 
 import {
@@ -44,15 +44,16 @@ const ProductRender: React.FC = ({ data }: any) => {
         }}
       >
         <ProductImg
-          // style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
           source={ImgDefault}
         />
         {data.avatar_url ? (
           <ProductImg
-            style={{ marginLeft: -119 }}
+            style={{ marginLeft: -125 }}
             source={{ uri: data.avatar_url }} />
         ) : (
-          <ProductImg source={logoImg} />
+            <ProductImg
+              style={{ marginLeft: -125 }}
+              source={logoImg} />
         )}
 
         <View>

@@ -116,8 +116,8 @@ const AppRoutes: React.FC = () => {
             options={{
               tabBarLabel: 'Início',
               headerShown: false,
-              tabBarActiveTintColor: '#F2A900',
-              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarActiveTintColor: '#ff6700',
+              tabBarInactiveTintColor: '#ffba5f',
               tabBarStyle: {
                 backgroundColor: '#fff5e6',
                 height: 72,
@@ -125,6 +125,7 @@ const AppRoutes: React.FC = () => {
               tabBarLabelStyle: {
                 textAlign: 'center',
                 fontSize: 12,
+                fontWeight: '500'
               },
               tabBarIcon: ({ color }) => (
                 <Icon
@@ -142,8 +143,8 @@ const AppRoutes: React.FC = () => {
             options={{
               tabBarLabel: 'Cardápio',
               headerShown: false,
-              tabBarActiveTintColor: '#F2A900',
-              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarActiveTintColor: '#ff6700',
+              tabBarInactiveTintColor: '#ffba5f',
               tabBarStyle: {
                 backgroundColor: '#fff5e6',
                 height: 72,
@@ -151,6 +152,7 @@ const AppRoutes: React.FC = () => {
               tabBarLabelStyle: {
                 textAlign: 'center',
                 fontSize: 12,
+                fontWeight: '500'
               },
               tabBarIcon: ({ color }) => (
                 <Icon
@@ -168,8 +170,8 @@ const AppRoutes: React.FC = () => {
             options={{
               tabBarLabel: 'Pedido',
               headerShown: false,
-              tabBarActiveTintColor: '#F2A900',
-              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarActiveTintColor: '#ff6700',
+              tabBarInactiveTintColor: '#ffba5f',
               tabBarStyle: {
                 backgroundColor: '#fff5e6',
                 height: 72,
@@ -177,6 +179,7 @@ const AppRoutes: React.FC = () => {
               tabBarLabelStyle: {
                 textAlign: 'center',
                 fontSize: 12,
+                fontWeight: '500'
               },
               tabBarIcon: ({ color }) => (
                 <Icon
@@ -195,8 +198,8 @@ const AppRoutes: React.FC = () => {
             options={{
               tabBarLabel: 'Mais',
               headerShown: false,
-              tabBarActiveTintColor: '#F2A900',
-              tabBarInactiveTintColor: '#fcd0ba',
+              tabBarActiveTintColor: '#ff6700',
+              tabBarInactiveTintColor: '#ffba5f',
               tabBarStyle: {
                 backgroundColor: '#fff5e6',
                 height: 72,
@@ -204,6 +207,7 @@ const AppRoutes: React.FC = () => {
               tabBarLabelStyle: {
                 textAlign: 'center',
                 fontSize: 12,
+                fontWeight: '500'
               },
               tabBarIcon: ({ color }) => (
                 <Icon
